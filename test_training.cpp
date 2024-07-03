@@ -5,13 +5,8 @@
 #include <Eigen/Dense>
 
 using Eigen::MatrixXd;
-
-
-
-   
-    int main(){
     //initialize values
-    int epochs = 5;
+    int epochs = 10;
     float training_rate = 0.1f;
 
     MatrixXd dummy_data {
@@ -29,10 +24,18 @@ using Eigen::MatrixXd;
     };
 
 
+
+   
+    int main(){
+
+
+
          std::vector<std::vector<double>> report ;
 
          report = trainer(epochs, training_rate,  dummy_data );
 
+        //print weght size
+         std::cout << "weights size"<< report[0].size()<<std::endl;
          //print weights
           std::cout << "weights\n"<<std::endl;
          for(int i; i<report[0].size()-1; i++){
@@ -49,6 +52,7 @@ using Eigen::MatrixXd;
             std::cout << "epoch = "<<j<<" error =  "<<report[1][j]<<std::endl;
 
          }
+         return 0;
     }
     
    
